@@ -1,24 +1,23 @@
 import "../Styles/NavigationBar.css"
 import "../Scripts/NavigationBar.js"
+import { Link } from "react-router-dom"
 
-export default function NavigationBar(){
+export default function NavigationBar({children}){
     return (
         <div>
             <nav>
                 <div className="nav-bar">
                     <i className='bx bx-menu sidebarOpen' ></i>
-                    <span className="logo navLogo"><a href="#">CodingLab</a></span>
+                    <span className="logo navLogo"><a href="#">Noter</a></span>
                     <div className="menu">
                         <div className="logo-toggle">
-                            <span className="logo"><a href="#">CodingLab</a></span>
+                            <span className="logo"><a href="#">Noter</a></span>
                             <i className='bx bx-x siderbarClose'></i>
                         </div>
                         <ul className="nav-links">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><Link to="/">My Notes</Link></li>
+                            <li><Link to="/createnote">Create Note</Link></li>
+                            <li><Link to="/login">Logout</Link></li>
                         </ul>
                     </div>
                     <div className="darkLight-searchBox">
@@ -39,6 +38,7 @@ export default function NavigationBar(){
                     </div>
                 </div>
             </nav>
+            {children}
             
         </div>
     )

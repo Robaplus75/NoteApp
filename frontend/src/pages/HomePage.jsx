@@ -1,6 +1,10 @@
-import NavigationBar from "../components/NavigationBar";
+import Notes from "../components/Notes";
 
 
 export default function HomePage(){
-    return <NavigationBar />
+    return (
+        <div>
+            <Notes />
+        </div>
+        )
 }

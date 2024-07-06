@@ -1,0 +1,96 @@
+.note-card {
+  width: 300px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 10px;
+  box-shadow: 0 0 70px rgba(0, 0, 0, 0.1);
+}
+
+.note-header {
+  background-color: var(--nav-color);
+  color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.note-header h2 {
+  margin: 0;
+}
+
+.note-content {
+  padding: 10px;
+  height: 100px;
+  background-color: rgb(247, 241, 241);
+}
+
+.note-footer {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  text-align: right;
+}
+
+.note-footer button {
+  background-color: var(--nav-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.note-footer button:hover {
+  background-color: #117e68;
+}
+
+@media only screen and (max-width: 768px) {
+  .note-card {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .note-header {
+    padding: 10px 5px;
+  }
+
+  .note-content {
+    padding: 10px 5px;
+  }
+
+  .note-footer {
+    padding: 10px 5px;
+  }
+
+  .note-footer button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .note-card {
+    width: 95%;
+    margin: 10px auto;
+  }
+
+  .note-header {
+    padding: 5px;
+  }
+
+  .note-content {
+    padding: 5px;
+  }
+
+  .note-footer {
+    padding: 5px;
+  }
+
+  .note-footer button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}

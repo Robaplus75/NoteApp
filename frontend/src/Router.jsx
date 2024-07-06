@@ -3,13 +3,15 @@ import HomePage from "./pages/HomePage"
 import SignupPage from "./pages/SignupPage"
 import LogInPage from "./pages/LoginPage"
 import CreateNotePage from "./pages/CreateNotePage"
+import UpdateNotePage from "./pages/UpdateNotePage"
 import NotFoundPage from "./pages/NoteFoundPage"
+import NavigationBar from "./components/NavigationBar"
 
 
 const router = createBrowserRouter([
   {
     path:'/',
-    element: <HomePage />,
+    element: <NavigationBar><HomePage /></NavigationBar>,
     errorElement: <NotFoundPage />
   },
   {
@@ -22,7 +24,11 @@ const router = createBrowserRouter([
   },
   {
     path:'/createnote',
-    element: <CreateNotePage />
+    element: <NavigationBar><CreateNotePage /></NavigationBar>
+  },
+  {
+    path:'/updatenote',
+    element: <NavigationBar><UpdateNotePage /></NavigationBar>
   }
 ])
 
