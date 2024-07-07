@@ -1,0 +1,18 @@
+POST http://localhost:8000/api/signup/
+Content-Type: application/json
+
+{"username":"solomon", "password":"12345"}
+
+###
+
+PATCH  http://localhost:8000/api/notes/update/2/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMzAwNTI2LCJpYXQiOjE3MjAyOTg2MTcsImp0aSI6ImEzNTNiMzU2MjI2MTQ2MDFiNjJmOTExY2JhOWFmZDY4IiwidXNlcl9pZCI6MX0.lS35dkhzJhZE6aDIGAR7UVfRmktHfgfyTgBE04PTVOg
+
+{"content": "new Contentn here"}
+
+###
+
+GET http://localhost:8000/api/notes/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzIwMzAwNTI2LCJpYXQiOjE3MjAyOTg2MTcsImp0aSI6ImEzNTNiMzU2MjI2MTQ2MDFiNjJmOTExY2JhOWFmZDY4IiwidXNlcl9pZCI6MX0.lS35dkhzJhZE6aDIGAR7UVfRmktHfgfyTgBE04PTVOg
