@@ -1,9 +1,30 @@
 import "../Styles/NavigationBar.css"
-import "../Scripts/NavigationBar.js"
 import { Link } from "react-router-dom"
 import { Outlet } from "react-router-dom"
+import { useEffect } from "react";
 
 export default function NavigationBar({children}){
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.src = "src/Scripts/NavigationBar.js";
+        script.async = true;
+        script.onload = () => {
+          console.log('Script loaded!');
+          // Initialize or call any function from the script if needed
+        };
+        script.onerror = () => {
+          console.error('Script failed to load.');
+        };
+    
+        document.body.appendChild(script);
+    
+        return () => {
+          // Cleanup: remove the script when the component unmounts
+          document.body.removeChild(script);
+        };
+      }, []);
+
     return (
         <div>
             <nav>
