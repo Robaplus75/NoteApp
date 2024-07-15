@@ -1,6 +1,7 @@
 import "../Styles/NavigationBar.css"
 import "../Scripts/NavigationBar.js"
 import { Link } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 
 export default function NavigationBar({children}){
     return (
@@ -38,7 +39,7 @@ export default function NavigationBar({children}){
                     </div>
                 </div>
             </nav>
-            {children}
+            <Outlet />
             
         </div>
     )

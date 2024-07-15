@@ -10,9 +10,22 @@ import NavigationBar from "./components/NavigationBar"
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element: <NavigationBar><HomePage /></NavigationBar>,
-    errorElement: <NotFoundPage />
+    element: <NavigationBar />,
+    errorElement: <NotFoundPage />,
+    children : [
+      {
+        path:'/',
+        element: <HomePage />,
+      },
+      {
+        path:'/createnote',
+        element: <CreateNotePage />
+      },
+      {
+        path:'/updatenote',
+        element: <UpdateNotePage />
+      },
+    ]
   },
   {
     path:'/signup',
@@ -22,14 +35,6 @@ const router = createBrowserRouter([
     path:'/login',
     element: <LogInPage />
   },
-  {
-    path:'/createnote',
-    element: <NavigationBar><CreateNotePage /></NavigationBar>
-  },
-  {
-    path:'/updatenote',
-    element: <NavigationBar><UpdateNotePage /></NavigationBar>
-  }
 ])
 
 function Router() {
