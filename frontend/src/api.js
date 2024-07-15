@@ -1,3 +1,24 @@
+import axios from 'axios'
+import { jwtDecode } from 'jwt-decode'
+
+
+const api = axios.create({
+    baseURL: 'http://localhost:8000/'
+})
+
+api.interceptors.request.use(function (config) {
+    let authTokens = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null
+    if (authTokens){
+      config.headers.Authorization = `Bearer ${authTokens.access}`
+    }
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
+
+export default api;
+
 // import axios from 'axios';
 // import jwtDecode from 'jwt-decode';
 // import { useNavigate } from 'react-router-dom';

@@ -1,6 +1,6 @@
 import "../Styles/NavigationBar.css"
 import { Link } from "react-router-dom"
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { useEffect } from "react";
 
 export default function NavigationBar({children}){
@@ -25,6 +25,13 @@ export default function NavigationBar({children}){
         };
       }, []);
 
+      const navigate = useNavigate()
+
+      const logout = ()=>{
+        localStorage.removeItem('authTokens')
+        navigate('/login')
+      }
+
     return (
         <div>
             <nav>
@@ -39,7 +46,7 @@ export default function NavigationBar({children}){
                         <ul className="nav-links">
                             <li><Link to="/">My Notes</Link></li>
                             <li><Link to="/createnote">Create Note</Link></li>
-                            <li><Link to="/login">Logout</Link></li>
+                            <li onClick={logout}><Link>Logout</Link></li>
                         </ul>
                     </div>
                     <div className="darkLight-searchBox">

@@ -1,3 +1,5 @@
+if (typeof ismounted === 'undefined') {
+const ismounted = true
 const body = document.querySelector("body"),
 nav = document.querySelector("nav"),
 modeToggle = document.querySelector(".dark-light"),
@@ -37,3 +39,4 @@ body.addEventListener("click", (e) => {
     nav.classList.remove("active");
   }
 });
+}

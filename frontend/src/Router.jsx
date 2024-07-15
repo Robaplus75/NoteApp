@@ -6,6 +6,7 @@ import CreateNotePage from "./pages/CreateNotePage"
 import UpdateNotePage from "./pages/UpdateNotePage"
 import NotFoundPage from "./pages/NoteFoundPage"
 import NavigationBar from "./components/NavigationBar"
+import { AuthProvider } from "./context/AuthContext"
 
 
 const router = createBrowserRouter([
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
 ])
 
 function Router() {
-  return <RouterProvider router={router} />
+  return <AuthProvider><RouterProvider router={router} /></AuthProvider>
 }
 
 export default Router

@@ -3,8 +3,30 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px; /* add gap between cards */
+
+}
+.CreateNoteBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+ 
+}
+.CreateNoteBtn .link{
+  padding: 15px;
+  background-color: var(--nav-color);
+  text-decoration: none;
+  font-style: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  transition: all ease 0.5;
 }
 
+.CreateNoteBtn .link:hover{
+  font-size:20px;
+}
 /* Responsive styles */
 
 @media only screen and (max-width: 768px) {
