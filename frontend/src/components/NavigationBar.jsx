@@ -68,7 +68,7 @@ export default function NavigationBar({children}){
                     </div>
                 </div>
             </nav>
-            <Toaster position="bottom-center"/>
+            <Toaster position="top-right"/>
             <Outlet />
             
         </div>

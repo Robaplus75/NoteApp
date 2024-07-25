@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import api from "../api";
+import toast from "react-hot-toast"
 
 export const notesContext = createContext()
 
@@ -23,6 +24,7 @@ export const NoteProvider = ({children})=>{
                 return error.response
             }else{
                 console.log("Sth went wrong")
+                toast.error("Getting Notes Failed")
                 console.log(error)
                 return error
             }
@@ -36,6 +38,7 @@ export const NoteProvider = ({children})=>{
         try{
             const response = await api.delete(`api/notes/${id}/`)
             console.log("Note Deleted!")
+            toast.success("Note Deleted!")
             getNotes()
             return response
 
@@ -45,6 +48,7 @@ export const NoteProvider = ({children})=>{
                   return error.response
               }else{
                   console.log("Sth went wrong")
+                  toast.error("Failed to Delete")
                   console.log(error)
                   return error
               }
