@@ -1,32 +1,26 @@
 import "../Styles/NavigationBar.css"
 import "../Styles/NoteCard.css"
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext} from "react";
 import LoadingBar from "./LoadingBar"
-import api from '../api'
+import { notesContext } from "../context/NotesContext";
 
 export default function NoteCard({id, title, content}){
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
+    const {deleteNote} = useContext(notesContext)
 
     const deleteCard = async ()=>{
-      try{
-        setLoading(true)
-        const response = await api.delete(`api/notes/${id}/`)
-        console.log("Note Deleted!")
-        navigate("/")
-
-      }catch(error){
-          if (error.response && error.response.status === 401){
-              alert("Please LogIn First")
-              localStorage.removeItem("authTokens")
-              navigate("/login")
-          }else{
-              console.log("Sth went wrong")
-              console.log(error)
-              setLoading(false)
-          }
-
+      const response = await deleteNote(id)
+      if (response.status && response.status === 204){
+        console.log("Note deleted")
+      } else if(response.status && response.status === 401){
+        alert("Invalid Token: Please LogIn First")
+        localStorage.removeItem("authTokens")
+        navigate("/login")
+      }else{
+        console.log(response)
+        console.log("delete falied")
       }
     }
     return (
@@ -40,7 +34,7 @@ export default function NoteCard({id, title, content}){
         </div>
 
         <div className="note-footer">
-          <Link><i className="fas fa-pen"></i></Link>
+          <Link onClick={navigate('/updatenote', {state: {id:id, title:title, content:content} })}><i className="fas fa-pen"></i></Link>
 
           <Link onClick={deleteCard}><i style={{marginLeft: 30 + 'px'}} className="fas fa-trash"></i></Link>
         </div>

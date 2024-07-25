@@ -1,38 +1,32 @@
 import NoteCard from "./NoteCard";
 import "../Styles/Notes.css"
 import api from "../api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { notesContext } from "../context/NotesContext";
 import LoadingBar from "./LoadingBar";
 import { useNavigate, Link } from "react-router-dom";
 
 
 export default function Notes(){
-    const [notes, setNotes] = useState([])
-    const [loading, setLoading] = useState(false)
+    const {getNotes, notes, setNotes, loading, setLoading} = useContext(notesContext)
     const isEmpty = notes.length === 0 ? true : false
     const navigate = useNavigate()
 
-    const getNotes = async ()=>{
-        console.log("getting Notes...")
-        setLoading(true)
-        try{
-            const response = await api.get("api/notes/")
-            if(response.status === 200){
-                setNotes(response.data)
-                setLoading(false)
-                console.log("success")
-            }
-        }catch(error){
-            if (error.response.status === 401){
-                alert("Please LogIn First")
-                localStorage.removeItem("authTokens")
-                navigate("/login")
-            }
-        }
+    const gettheNotes = async ()=>{
+        const response = await getNotes()
+        if(response.status && response.status === 401){
+            alert("Invalid Token: Please LogIn First")
+            localStorage.removeItem("authTokens")
+            navigate("/login")
+          }else{
+            console.log(response)
+            console.log("Getting Notes Failed")
+          }
     }
 
+
     useEffect(()=>{
-        getNotes()
+        gettheNotes()
     },[])
 
     if (isEmpty){

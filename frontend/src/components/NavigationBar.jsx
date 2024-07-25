@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { Outlet, useNavigate } from "react-router-dom"
 import { useEffect } from "react";
 
+
 export default function NavigationBar({children}){
 
     useEffect(() => {

@@ -7,6 +7,7 @@ import UpdateNotePage from "./pages/UpdateNotePage"
 import NotFoundPage from "./pages/NoteFoundPage"
 import NavigationBar from "./components/NavigationBar"
 import { AuthProvider } from "./context/AuthContext"
+import { NoteProvider } from "./context/NotesContext"
 
 
 const router = createBrowserRouter([
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children : [
       {
         path:'/',
-        element: <HomePage />,
+        element: <NoteProvider><HomePage /></NoteProvider>,
       },
       {
         path:'/createnote',
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/updatenote',
-        element: <UpdateNotePage />
+        element: <NoteProvider><UpdateNotePage /></NoteProvider>
       },
     ]
   },

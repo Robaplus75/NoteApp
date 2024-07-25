@@ -3,6 +3,7 @@ import NoteForm from "../components/NoteForm";
 import "../Styles/NoteForm.css"
 import api from "../api.js";
 
+
 export default function CreateNotePage(){
     const navigate = useNavigate()
     const handleSubmit = async (data)=>{
