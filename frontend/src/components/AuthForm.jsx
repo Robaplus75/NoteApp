@@ -1,5 +1,6 @@
 import "../Styles/AuthForm.css"
 import { Link } from "react-router-dom"
+import { Toaster } from 'react-hot-toast'
 
 export default function AuthForm({ handleSubmit, FormType }){
     const submit_click = (event)=>{
@@ -13,6 +14,7 @@ export default function AuthForm({ handleSubmit, FormType }){
     }
     return (
         <div>
+            <Toaster position="top-right"/>
             <div className="container">
             <div className="wrapper">
                 <div className="title"><span>{FormType}</span></div>

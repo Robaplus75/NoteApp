@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { notesContext } from "../context/NotesContext";
 import LoadingBar from "./LoadingBar";
 import { useNavigate, Link } from "react-router-dom";
+import toast from 'react-hot-toast'
 
 
 export default function Notes(){
@@ -15,7 +16,7 @@ export default function Notes(){
     const gettheNotes = async ()=>{
         const response = await getNotes()
         if(response.status && response.status === 401){
-            alert("Invalid Token: Please LogIn First")
+            toast.error("User Not Logged or Token Expired") 
             localStorage.removeItem("authTokens")
             navigate("/login")
           }else{
