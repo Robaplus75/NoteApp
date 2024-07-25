@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import NoteForm from "../components/NoteForm";
 import "../Styles/NoteForm.css"
 import api from "../api.js";
-
+import toast from "react-hot-toast"
 
 export default function CreateNotePage(){
     const navigate = useNavigate()
@@ -14,6 +14,7 @@ export default function CreateNotePage(){
                 content: data.content
             })
             console.log("Note Created!")
+            toast.success("Note Created")
             navigate("/")
 
         }catch(error){

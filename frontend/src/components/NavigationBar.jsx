@@ -2,7 +2,7 @@ import "../Styles/NavigationBar.css"
 import { Link } from "react-router-dom"
 import { Outlet, useNavigate } from "react-router-dom"
 import { useEffect } from "react";
-
+import { Toaster } from "react-hot-toast"
 
 export default function NavigationBar({children}){
 
@@ -68,6 +68,7 @@ export default function NavigationBar({children}){
                     </div>
                 </div>
             </nav>
+            <Toaster position="bottom-center"/>
             <Outlet />
             
         </div>
